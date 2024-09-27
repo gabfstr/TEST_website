@@ -43,5 +43,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "tests/a.txt,tests/b.txt"
+          source: "_site/*"
           target: ${{ secrets.TARGET_PATH }}
