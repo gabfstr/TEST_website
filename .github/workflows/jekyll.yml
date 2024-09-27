@@ -36,19 +36,19 @@ jobs:
             
 
   # Deployment job
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Deploy to ENS server
-        id: deployment        
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          source: "tests/a.txt,tests/b.txt"
-          target: your_server_target_folder_path
+  #deploy:
+  #  runs-on: ubuntu-latest
+  #  needs: build
+  #  steps:
+  #    - uses: actions/checkout@v4
+  #    
+  #    - name: Deploy to ENS server
+  #      id: deployment        
+  #      uses: appleboy/scp-action@v0.1.7
+  #      with:
+  #        host: ${{ secrets.HOST }}
+  #        username: ${{ secrets.USERNAME }}
+  #        password: ${{ secrets.PASSWORD }}
+  #        port: ${{ secrets.PORT }}
+  #        source: "tests/a.txt,tests/b.txt"
+  #        target: your_server_target_folder_path
