@@ -23,13 +23,16 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
       - name: Build Jekyll
         uses: jerryjvl/jekyll-build-action@v1
+      
+      - name: rename
+        run: mv _site www
                 
       - name: Deploy to ENS server
         id: deployment        
@@ -38,5 +41,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "_site/*"
+          source: "www/*"
           target: ${{ secrets.TARGET_PATH }}
